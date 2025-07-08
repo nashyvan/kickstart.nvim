@@ -13,11 +13,31 @@ return {
     require('lualine').setup {
       options = {
         icons_enabled = USE_DEVICONS,
-        theme = 'auto',
+        theme = {
+          normal = {
+            a = { fg = '#ffffff', bg = '#005f87', gui = 'bold' },
+            b = { fg = '#ffffff', bg = '#3a3a3a' },
+            c = { fg = '#ffffff', bg = '#1c1c1c' },
+          },
+          insert = {
+            a = { fg = '#000000', bg = '#5b9b4c', gui = 'bold' },
+          },
+          visual = {
+            a = { fg = '#000000', bg = '#d98e73', gui = 'bold' },
+          },
+          replace = {
+            a = { fg = '#000000', bg = '#d082c4', gui = 'bold' },
+          },
+          inactive = {
+            a = { fg = '#aaaaaa', bg = '#1c1c1c', gui = 'bold' },
+            b = { fg = '#aaaaaa', bg = '#1c1c1c' },
+            c = { fg = '#aaaaaa', bg = '#1c1c1c' },
+          },
+        },
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
-          statusline = {},
+          statusline = { 'NvimTree' },
           winbar = {},
         },
         ignore_focus = {},
@@ -49,7 +69,7 @@ return {
           },
           'diagnostics',
         },
-        lualine_c = { '%=', { 'filetype', icon_only = true }, { 'filename' } },
+        -- lualine_c = { '%=', { 'filetype', icon_only = true }, { 'filename' } },
         lualine_x = {},
         lualine_y = {
           {

@@ -269,7 +269,7 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  { -- Useful plugin to show you pending keybinds.
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -315,7 +315,7 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
-        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+        { '<leader>c', group = '[C]ode',     mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
@@ -355,7 +355,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -451,7 +451,7 @@ require('lazy').setup({
       },
     },
   },
-  { 'Bilal2453/luvit-meta', lazy = true },
+  { 'Bilal2453/luvit-meta',     lazy = true },
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
@@ -463,7 +463,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
@@ -899,7 +899,23 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'javascript', 'typescript', 'tsx', 'twig' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'javascript',
+        'typescript',
+        'tsx',
+        'twig',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -934,22 +950,29 @@ require('lazy').setup({
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-  require 'custom.plugins.ui.devicons', -- Icons for nvim-tree and bufferline
-  require 'custom.plugins.ui.nvim-tree', -- A file explorer tree
+  require 'custom.plugins.ui.devicons',   -- Icons for nvim-tree and bufferline
+  require 'custom.plugins.ui.nvim-tree',  -- A file explorer tree
   require 'custom.plugins.ui.bufferline', -- Buffer line with tabpage integration
+  -- require 'custom.plugins.ui.barbar',           -- Buffer line with tabpage integration
+  --
   require 'custom.plugins.ui.lualine', -- Statusline
-  require 'custom.plugins.ui.barbecue', -- Winbar
-  require 'custom.plugins.ui.alpha', -- Start page
-  require 'custom.plugins.ui.colorizer', -- Highlight colors
-  require 'custom.plugins.ui.dressing', -- Plugin improves the default vim.ui interfaces
-  require 'custom.plugins.ui.fidget', -- Extensible UI for Neovim notifications and LSP progress messages
-  require 'custom.plugins.ui.illuminate', -- For automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching
+  -- require 'custom.plugins.ui.barbecue',         -- Winbar
+  -- require 'custom.plugins.ui.dropbar',          -- Winbar, crashing
+  require 'custom.plugins.ui.alpha',            -- Start page
+  require 'custom.plugins.ui.colorizer',        -- Highlight colors
+  require 'custom.plugins.ui.dressing',         -- Plugin improves the default vim.ui interfaces
+  require 'custom.plugins.ui.fidget',           -- Extensible UI for Neovim notifications and LSP progress messages
+  require 'custom.plugins.ui.illuminate',       -- For automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching
   require 'custom.plugins.ui.indent-blankline', -- This plugin adds indentation guides to Neovim
-  require 'custom.plugins.ui.nvim-bqf', -- Better quickfix window
-  require 'custom.plugins.ui.sunglasses', -- enhances Neovim's interface and color schemes for a better coding experience (Dims unactive window)
-  require 'custom.plugins.ui.transparent', -- Remove all background colors to make nvim transparent
-  require 'custom.plugins.ui.twilight', -- Dims inactive portions of the code you're editing using TreeSitter
-  require 'custom.plugins.ui.virt-column', -- Display a character as the colorcolumn
+  require 'custom.plugins.ui.nvim-bqf',         -- Better quickfix window
+  require 'custom.plugins.ui.sunglasses',       -- enhances Neovim's interface and color schemes for a better coding experience (Dims unactive window)
+  require 'custom.plugins.ui.transparent',      -- Remove all background colors to make nvim transparent
+  require 'custom.plugins.ui.twilight',         -- Dims inactive portions of the code you're editing using TreeSitter
+  require 'custom.plugins.ui.virt-column',      -- Display a character as the colorcolumn
+  -- require 'custom.plugins.ui.emmet', -- Emmet
+  require 'custom.plugins.ui.autotag',
+  -- require 'custom.plugins.ui.luasnip',
+  require 'custom.plugins.ui.conform',
   require 'custom.plugins.colorscheme.vscode',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -986,3 +1009,5 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+require('custom')
